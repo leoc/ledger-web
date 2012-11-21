@@ -1,0 +1,14 @@
+.navigation
+  .navbar
+    .title LedgerWeb
+    .capture_button
+      %i.icon-plus
+  .tabbar
+    .tabs
+      %div.balance
+        %a{ href: "/balance" } BALANCE
+      %div.register
+        %a{ href: "/register" } REGISTER
+      %div.statistics 
+        %a{ href: "/statistics" } STATISTICS
+.viewport
