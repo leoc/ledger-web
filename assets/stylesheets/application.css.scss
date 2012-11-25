@@ -12,6 +12,29 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'DroidSansRegular';
+    src: url('DroidSans-webfont.eot');
+    src: url('DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DroidSans-webfont.woff') format('woff'),
+         url('DroidSans-webfont.ttf') format('truetype'),
+         url('DroidSans-webfont.svg#DroidSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DroidSansBold';
+    src: url('DroidSans-Bold-webfont.eot');
+    src: url('DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('DroidSans-Bold-webfont.woff') format('woff'),
+         url('DroidSans-Bold-webfont.ttf') format('truetype'),
+         url('DroidSans-Bold-webfont.svg#DroidSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 $nav_bg_color: #112125;
 $nav_fg_color: #fff;
@@ -21,78 +44,106 @@ $tab_fg_color: #000;
 body {
   width: 100%;
   height: 100%;
+
+  background-color: #000;
 }
 
 #ledger_web {
-  .navigation {
+  .navbar {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 45px;
     background-color: #112125;
     color: $nav_fg_color;
 
-    .navbar {
-      div {
-        position: absolute;
-        top: 0;
-        height: 45px;
+    .button {
+      text-align: center;
+      font-size: 1.3em;
+      line-height: 50px;
+      font-family: DroidSansRegular;
 
-        &.title {
-          left: 10px;
-          font-family: franchiseregular;
-          color: #efefef;
-          font-size: 1.8em;
-          line-height: 45px;
-        }
-
-        &.capture_button {
-          right: 5px;
-          width: 45px;
-          text-align: center;
-          font-size: 1.3em;
-          line-height: 50px;
-
-          &:hover {
-            background-color: lighten($nav_bg_color, 5%);
-          }
-        } 
-      }      
-    }
-
-    .tabbar {
-      position: absolute;
-      top: 45px; left: 0; right: 0;
-      height: 30px;
-      background-color: $tab_bg_color;
-      color: $tab_fg_color;
-      font-weight: bold;
-      font-size: 1em;
-
-      a {
-        color:#000;
-        text-decoration: none;
+      
+      &.back {
+        left: 5px;
       }
 
-      .tabs {
+      &:hover {
+        background-color: lighten($nav_bg_color, 5%);
+      }
+
+      i, a {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    div {
+      position: absolute;
+      top: 0;
+      height: 45px;
+
+      &.title {
+        left: 10px;
+        font-family: franchiseregular;
+        color: #efefef;
+        font-size: 1.8em;
+        line-height: 45px;
+      }
+
+      &.capture_button {
+        @extend .button;
+        width: 45px;
+        right: 5px;
+      }
+
+      &.back_button {
+        @extend .button;
+        left: 5px;
+        color: #fff;
+        padding: 0 10px 0 10px;
+      }
+    }      
+  }
+
+  .tabbar {
+    position: absolute;
+    top: 45px; left: 0; right: 0;
+    height: 30px;
+    background-color: $tab_bg_color;
+    color: $tab_fg_color;
+    font-family: DroidSansBold;
+    font-size: 1em;
+
+    a {
+      color:#000;
+      text-decoration: none;
+    }
+
+    .tabs {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      overflow: hidden;
+      white-space: nowrap;
+
+      div {
         position: absolute;
-        top: 0; bottom: 0; left: 0; right: 0;
-        overflow: hidden;
-        white-space: nowrap;
+        width: 50%;
+        text-align: center;
+        line-height: 30px;
 
-        div {
-          position: absolute;
-          top: 5px;
-          width: 50%;
-          text-align: center;
+        -webkit-transition-property: left;
+        -webkit-transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
 
-          -webkit-transition-property: left;
-          -webkit-transition-duration: 0.5s;
-          -webkit-transition-delay: 0;
-
-          &.balance { left: 100%; }
-          &.register { left: 150%; }
-          &.statistics { left: 200%; }
-        }
+        &.balance { left: 100%; }
+        &.register { left: 150%; }
+        &.statistics { left: 200%; }
       }
     }
   }
@@ -103,54 +154,181 @@ body {
     left: 0; right: 0;
     overflow: hidden;
     
-    div {
+    &> div {
       position: absolute;
       width: 100%;
       top: 0; bottom: 0;
-      background-color: #000;
+      overflow: auto;
+    }
+  }
 
-      -webkit-transition-property: left;
-      -webkit-transition-duration: 0.5s;
-      -webkit-transition-delay: 0;
-      
+  .capture {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: #000;
+  }
+
+  #main {
+    .viewport {
+      div {
+        -webkit-transition-property: left;
+        -webkit-transition-duration: 0.5s;
+        -webkit-transition-delay: 0;
+      }
+
       &.balance { left: 100%; background-color: #f00;}
       &.register { left: 200%; background-color: #0f0;}
       &.statistics { left: 300%; background-color: #00f;}
     }
+
+    &.balance {
+      .tabbar .tabs div {
+        &.balance { left: 25%; }
+        &.register { left: 75%; }
+        &.statistics { left: 125%; }
+      }
+      
+      .viewport .balance { left: 0; }
+      .viewport .register { left: 100%; }
+      .viewport .statistics { left: 200%; }
+    }
+    &.register {
+      .tabbar .tabs div {
+        &.balance { left: -25%; }
+        &.register { left: 25%; }
+        &.statistics { left: 75%; }
+      }
+
+      .viewport .balance { left: -100%; }
+      .viewport .register { left: 0; }
+      .viewport .statistics { left: 100%; }
+    }
+    &.statistics {
+      .tabbar .tabs div {
+        &.balance { left: -75%; }
+        &.register { left: -25%; }
+        &.statistics { left: 25%; }
+      }
+
+      .viewport .balance { left: -200%; }
+      .viewport .register { left: -100%; }
+      .viewport .statistics { left: 0%; }
+    }
+
+    .amount {
+      span {
+        &.negative { color: #a04022; }
+        &.positive { color: #fff; }
+      }
+    }
+
+    .viewport {
+      .balance {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        color: #fff;
+        font-family: DroidSansRegular;
+        padding: 15px 0;
+
+        .account {
+          position: relative;
+          height: 24px;
+          width: 100%;
+          overflow: hidden;
+
+          .amount {
+            position: absolute;
+            left: 0px; right: 65%;
+            height: 24px;
+
+            span { float: right; }
+          }
+          .name { 
+            position: absolute;
+            left: 35%; right: 0;
+            height: 24px;
+            color: #115f9f;
+          }
+        }
+      }
+
+      .register {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        color: #fff;
+        font-family: DroidSansRegular;
+        padding: 15px 0 0 0;
+
+        .transaction {
+          position: relative;
+          color: #fff;
+          margin-bottom: 15px;
+
+          .info {
+            position: relative;
+            height: 24px;
+
+            .text {
+              position: absolute;
+              left: 10px; right: 10px;
+              overflow: hidden;
+              white-space: nowrap;
+
+              span.date { font-weight: bold; }
+              span.payee { margin-left: 10px; }
+            }
+          }
+
+          .postings {
+            position: relative;
+            width: 100%;
+
+            .posting {
+              position: relative;
+              width: 100%;
+              height: 24px;
+              
+              .account {
+                position: absolute;
+                left: 30px; right: 35%;
+                color: #115f9f;
+                overflow: hidden;
+                white-space: nowrap;
+              }
+
+              .amount {
+                position: absolute;
+                left: 65%; right: 15px;
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+
+      .statistics {
+        text-align: center;
+        color: #fff;
+        font-family: DroidSansRegular;
+        line-height: 400px;
+      }
+    }
   }
 
-
-  &.balance {
-    .navigation .tabbar .tabs div {
-      &.balance { left: 25%; }
-      &.register { left: 75%; }
-      &.statistics { left: 125%; }
-    }
-    
-    .viewport .balance { left: 0; }
-    .viewport .register { left: 100%; }
-    .viewport .statistics { left: 200%; }
-  }
-  &.register {
-    .navigation .tabbar .tabs div {
-      &.balance { left: -25%; }
-      &.register { left: 25%; }
-      &.statistics { left: 75%; }
+  #capture {
+    input {
+      &#payee {
+        position: absolute;
+        left: 5px; top: 5px; right: 5px;
+        font-size: 1.3em;
+        font-family: DroidSansRegular;
+        padding: 5px;
+      }
     }
 
-    .viewport .balance { left: -100%; }
-    .viewport .register { left: 0; }
-    .viewport .statistics { left: 100%; }
-  }
-  &.statistics {
-    .navigation .tabbar .tabs div {
-      &.balance { left: -75%; }
-      &.register { left: -25%; }
-      &.statistics { left: 25%; }
+    .viewport {
+      top: 45px;
+      background-color: #000;
     }
-
-    .viewport .balance { left: -200%; }
-    .viewport .register { left: -100%; }
-    .viewport .statistics { left: 0%; }
   }
 }

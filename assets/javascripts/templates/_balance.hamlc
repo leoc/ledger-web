@@ -1,0 +1,8 @@
+.account
+  .amount
+    - if @account.total.charAt(0) is "-"
+      %span.negative= @account.total
+    - else
+      %span.positive= @account.total
+  .name{ style: "margin-left: #{@account.depth * 20}px;" }
+    %span= @account.name

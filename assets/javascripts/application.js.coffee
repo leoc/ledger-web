@@ -13,15 +13,16 @@
 window.app = {}
 
 class window.LedgerWeb extends Backbone.Model
-  defaults:
-    current: 'balance'
-
   initialize: ->
     @balance = new LedgerWeb.Balance()
     @register = new LedgerWeb.Register()
 
-  capture_transaction: ->
-    
+  update: ->
+    today = new Date
+    @balance.fetch()
+    @register.fetch
+      data:
+        query: "--sort date --begin #{today.getFullYear()}/#{today.getMonth()}/#{today.getDate()}"
 
 class window.LedgerWeb.Router extends Backbone.Router
   routes:
@@ -29,28 +30,35 @@ class window.LedgerWeb.Router extends Backbone.Router
     'balance': 'balance'
     'register': 'register'
     'statistics': 'statistics'
-    'capture': 'capture'
+    'capture': 'capture_transaction'
 
   initialize: ->
     window.app = new LedgerWeb()
-    window.view = new LedgerWeb.MainView
+    window.app.main_view = new LedgerWeb.MainView
       model: app
-    $('body').append(view.render().el)
+    $('#ledger_web').append(app.main_view.render().el)
+    app.update()
 
   index: ->
+    Backbone.history.navigate("/balance", true)
 
   balance: ->
+    $('#ledger_web #capture').remove()
     app.set 'current', 'balance'
     
   register: ->
+    $('#ledger_web #capture').remove()
     app.set 'current', 'register'
 
   statistics: ->
+    $('#ledger_web #capture').remove()
     app.set 'current', 'statistics'
 
-  capture: ->
-    app.capture_transaction()
-  
+  capture_transaction: ->
+    app.new_transaction = new LedgerWeb.Transaction()
+    app.capture_view = new LedgerWeb.CaptureView model: app.new_transaction
+    $('#ledger_web').append(app.capture_view.render().el)
+
 $(document).ready ->
   new LedgerWeb.Router()
   Backbone.history.start()

@@ -4,5 +4,5 @@ class window.LedgerWeb.StatisticsView extends Backbone.View
   initialize: ->
 
   render: ->
-    $(@el).html("")
+    $(@el).html("Not yet implemented!")
     this

@@ -1,0 +1,8 @@
+.navbar
+  .back_button
+    %a{href:"#", onClick: "Backbone.history.back(true)"}
+      %i.icon-arrow-left
+      %span Back
+.viewport
+  .choose_payee
+    %input{ id: "payee", name: "payee", type: "text", x-webkit-speech: "", placeholder: "Choose template or type in payee ..." }
