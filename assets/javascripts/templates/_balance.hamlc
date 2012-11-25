@@ -4,5 +4,5 @@
       %span.negative= @account.total
     - else
       %span.positive= @account.total
-  .name{ style: "margin-left: #{@account.depth * 20}px;" }
+  .name{ style: "margin-left: #{(@account.depth-@account.name.split(':').length+1) * 20}px;" }
     %span= @account.name
