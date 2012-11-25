@@ -14,6 +14,11 @@ gem 'sprockets-helpers'
 gem 'haml_coffee_assets', '>= 1.4.1'
 gem 'yui-compressor'
 
+gem 'escape'
+gem 'git'
+
+gem 'ledger-rest'
+
 group :test, :development do
   gem 'guard-sprockets2'
   gem 'guard-livereload'

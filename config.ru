@@ -1,3 +1,7 @@
+require 'bundler'
+
+Bundler.require
+
 require './ledger_web'
 
 map LedgerWeb.assets_prefix do
@@ -6,4 +10,8 @@ end
 
 map '/' do
   run LedgerWeb
+end
+
+map '/api' do
+  run LedgerRest::App
 end
