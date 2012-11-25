@@ -1,14 +1,19 @@
-require 'bundler'
-
-Bundler.require
+require 'sinatra/base'
+require 'haml'
+require 'sass'
+require 'sprockets'
+require 'sprockets-sass'
+require 'sprockets-helpers'
+require 'haml_coffee_assets'
+require 'compass'
 
 class LedgerWeb < Sinatra::Base
-  set :sprockets,     Sprockets::Environment.new(root)
-  set :precompile,    [
-                       /\w+\.(?!js\.coffee|\.css).+/,
-                       /application(\.js\.coffee|\.scss)$/,
-                       /.+(\.ttf|\.eot|\.woff)$/
-                      ]
+  set :sprockets, Sprockets::Environment.new(root)
+  set :precompile, [
+                    /\w+\.(?!js\.coffee|\.css).+/,
+                    /application(\.js\.coffee|\.scss)$/,
+                    /.+(\.ttf|\.eot|\.woff)$/
+                   ]
   set :assets_prefix, '/assets'
   set :digest_assets, true
   set(:assets_path) { File.join public_folder, assets_prefix }
@@ -21,7 +26,6 @@ class LedgerWeb < Sinatra::Base
     compass_gem_root = Gem.loaded_specs['compass'].full_gem_path
     sprockets.append_path File.join(compass_gem_root, 'frameworks', 'compass', 'stylesheets')
     sprockets.append_path File.join(compass_gem_root, 'frameworks', 'compass', 'stylesheets', 'compass')
-
 
     Sprockets::Helpers.configure do |config|
       config.environment = sprockets
