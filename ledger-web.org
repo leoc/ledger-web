@@ -1,0 +1,21 @@
+* TODO ledger-web
+** TODO implement touch gestures for mobile devices
+** TODO add cache manifest
+** TODO add backbone local database layer for offline functioning
+** TODO implement mobile touch scrolling for viewport layers
+** TODO implement capture functionality
+   The capture functionality should use the `ledger entry` command.
+** TODO implement transaction editing view
+   The transaction editing pane is shown when creating transaction
+   either via entry/plain or when editing existing transactions.
+
+*** TODO implement account chooser
+    The account list automatically updates the list of matching accounts.
+*** TODO implement date chooser
+    A proper calender element for an input field.
+*** TODO implement amount chooser
+** TODO implement desktop stylesheets
+   Currently the whole web app is styled for mobile devices.
+
+   The ext step would be to create a useful desktop browser
+   interface ...
