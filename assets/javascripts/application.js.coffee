@@ -67,6 +67,6 @@ $(document).ready ->
     $('a').live 'click', (e) ->
       href = $(this).attr 'href'
       protocol = this.protocol + '//'
-      if (href.slice(protocol.length) isnt protocol) and !(href.indexOf('/sessions/destroy') >= 0)
+      if (href.slice(protocol.length) isnt protocol) and href.indexOf("javascript:") != 0 and !(href.indexOf('/sessions/destroy') >= 0)
         e.preventDefault();
         Backbone.history.navigate(href, true)

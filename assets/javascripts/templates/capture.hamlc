@@ -1,6 +1,6 @@
 .navbar
   .back_button
-    %a{href:"#", onClick: "Backbone.history.back(true)"}
+    %a{ href: "javascript:history.back()" }
       %i.icon-arrow-left
       %span Back
 .viewport
