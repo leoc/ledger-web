@@ -1,4 +1,6 @@
+#= require hammer
 #= require jquery-1.8.3
+#= require jquery.specialevent.hammer
 #= require hamlcoffee
 #= require underscore
 #= require backbone
