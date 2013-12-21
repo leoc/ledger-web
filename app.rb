@@ -21,8 +21,12 @@ class App < Sinatra::Base
 
     js :app, '/js/app.js', [
                             '/js/vendor/**/*.js',
-                            '/js/lib/**/*.js',
-                            '/js/templates.js'
+                            '/js/templates.js',
+                            '/js/lib/application.js',
+                            '/js/lib/models/**/*.js',
+                            '/js/lib/views/**/*.js',
+                            '/js/lib/collections/**/*.js',
+                            '/js/lib/router.js'
                            ]
     css :app, '/css/app.css', ['/css/screen.css']
 
