@@ -1,27 +1,18 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'sinatra', :require => 'sinatra/base'
+gem 'sinatra', require: 'sinatra/base'
+gem 'sinatra-backbone', require: 'sinatra/backbone'
+gem 'sinatra-assetpack', require: 'sinatra/assetpack'
+gem 'sinatra-security'
 
 gem 'sass'
-gem 'compass'
 gem 'haml'
 gem 'coffee-script'
-
-gem 'sprockets'
-gem 'sprockets-sass'
-gem 'sprockets-helpers'
-
-gem 'haml_coffee_assets', '>= 1.4.1'
-gem 'yui-compressor'
-
-gem 'escape'
-gem 'git'
 
 gem 'ledger-rest'
 
 group :test, :development do
-  gem 'guard-sprockets2'
+  gem 'guard-rack'
   gem 'guard-livereload'
   gem 'rb-inotify'
-  gem 'growl'
 end

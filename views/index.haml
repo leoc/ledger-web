@@ -2,11 +2,12 @@
 %html
   %head
     %title Ledger Web
-    %meta{'name' => 'viewport', 'content' => 'initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width'}
-    %meta{'name' => 'viewport', 'content' => 'initial-scale=1.0,user-scalable=no,maximum-scale=1', 'media' => '(device-height: 568px)'}
-    %meta{'name' => 'apple-mobile-web-app-capable', 'content' => 'yes'}
-    %link{ rel: "stylesheet", type: "text/css", href: stylesheet_path('application') }
-    %script{ src: javascript_path('application') }
+    %meta{ name: 'viewport', content: 'initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' }
+    %meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }
+    %meta{ name: 'mobile-web-app-capable', content: 'yes' }
+    != js :jst
+    != css :app, :media => 'screen'
+    != js :app
     %script{ src: "https://github.com/livereload/livereload-js/raw/master/dist/livereload.js?host=localhost" }
   %body
     #ledger_web

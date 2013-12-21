@@ -1,0 +1,3 @@
+ledger_file: "/home/arthur/.ledger/main.ledger"
+ledger_append_file: "/home/arthur/.ledger/personal.ledger"
+ledger_bin: "/bin/ledger"

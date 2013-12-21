@@ -1,16 +1,12 @@
-require './ledger_web'
-
-guard('sprockets2',
-      :sprockets   => LedgerWeb.sprockets,
-      :assets_path => LedgerWeb.assets_path,
-      :precompile  => LedgerWeb.precompile,
-      :digest      => LedgerWeb.digest_assets) do
-
-  watch %r(^assets/.+$)
-  watch 'ledger_web.rb'
-end
+require './app'
 
 guard 'livereload' do
-  watch(%r{public/.+\.(css|js|html)})
-  watch(%r{views/.+\.haml})
+  watch(/app\/.+/)
+  watch(/views\/.+\.haml/)
+end
+
+guard :rack, port: 9292 do
+  watch('Gemfile.lock')
+  watch('app.rb')
+  watch(/.+\.yml/)
 end

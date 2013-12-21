@@ -1,8 +1,0 @@
-.navbar
-  .back_button
-    %a{ href: "javascript:history.back()" }
-      %i.icon-arrow-left
-      %span Back
-.viewport
-  .choose_payee
-    %input{ id: "payee", name: "payee", type: "text", x-webkit-speech: "", placeholder: "Choose template or type in payee ..." }

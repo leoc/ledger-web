@@ -2,14 +2,13 @@ require 'bundler'
 
 Bundler.require
 
-require './ledger_web'
+# require './app'
+# App.set :run, false
 
-map LedgerWeb.assets_prefix do
-  run LedgerWeb.sprockets
-end
+require './app'
 
 map '/' do
-  run LedgerWeb
+  run App
 end
 
 map '/api' do
