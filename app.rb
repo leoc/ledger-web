@@ -39,7 +39,7 @@ class App < Sinatra::Base
   end
 
   set :root,          File.expand_path('.', File.dirname(__FILE__))
-  set :views,         File.expand_path('./views', File.dirname(__FILE__))
+  set :views,         File.expand_path('./app/views', File.dirname(__FILE__))
   set :public_folder, File.expand_path('./public', File.dirname(__FILE__))
 
   get '/' do
