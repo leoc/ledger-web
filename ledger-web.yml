@@ -1,6 +1,7 @@
 # Config file for ledger-web.
 reports:
   - title: 'Balance'
+    icon: 'bar-chart-o'
     type: 'simple'
     parameters:
       period: 'until today'
@@ -8,6 +9,7 @@ reports:
     resource: 'balance'
     query: ''
   - title: 'Net Worth'
+    icon: 'signal'
     reports:
       - title: 'Overview'
         type: 'simple'
@@ -24,6 +26,7 @@ reports:
         resource: 'register'
         query: '{{grouping}} -p {{period}} --empty -n'
   - title: 'Cashflow'
+    icon: 'exchange'
     reports:
       - title: 'Overview'
         type: 'simple'
@@ -38,3 +41,11 @@ reports:
           period: 'current month'
           grouping: '-D'
         query: '{{grouping}} -p {{period}} --empty -n ^Expenses ^Income'
+  - title: 'Transactions'
+    icon: 'bars'
+  - title: 'Budget'
+    icon: 'tasks'
+  - title: 'Expenses'
+    icon: 'long-arrow-right'
+  - title: 'Income'
+    icon: 'long-arrow-left'
