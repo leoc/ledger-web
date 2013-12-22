@@ -30,7 +30,8 @@ class App < Sinatra::Base
                             '/js/lib/models/**/*.js',
                             '/js/lib/views/**/*.js',
                             '/js/lib/collections/**/*.js',
-                            '/js/lib/router.js'
+                            '/js/lib/router.js',
+                            '/js/lib/start.js'
                            ]
     css :app, '/css/app.css', ['/css/screen.css']
 

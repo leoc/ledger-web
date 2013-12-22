@@ -1,1 +1,61 @@
-@import "app/css/_reset.scss";
+@import 'bourbon';
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700italic,700);
+@import url(http://fontawesome.io/assets/font-awesome/css/font-awesome.css);
+
+@import 'app/css/_reset.scss';
+
+$menu-background: #aaa;
+
+body {
+  font-family: Roboto;
+  font-weight: 300;
+  overflow: hidden;
+
+  h1, h2, h3, h4, h5 { font-weight: 400; }
+
+  #ledger-web {
+    @include position(absolute, 0px 0px 0px 0px);
+
+    header {
+      display: none;
+    }
+
+    #side-menu {
+      @include position(absolute, 0px 0 0px -80%);
+      @include transition(left .2s ease-in-out);
+      width: 80%;
+      background-color: $menu-background;
+    }
+
+    #content {
+      @include position(absolute, 0px 0 0px 0px);
+      @include transition(left .2s ease-in-out);
+      width: 100%;
+      overflow: hidden;
+
+      .blocking-layer {
+        @include position(absolute, 0px 0px 0 0px);
+        @include transition(opacity .2s ease-in-out);
+        background-color: rgba(#000, .1);
+        opacity: 0;
+        z-index: 50;
+      }
+    }
+
+    &.show-menu {
+      #side-menu {
+        left: 0;
+      }
+
+      #content {
+        left: 80%;
+      }
+
+      .blocking-layer {
+        @include position(absolute, 0px 0px 0px 0px);
+        opacity: 1 !important;
+      }
+    }
+  }
+}
