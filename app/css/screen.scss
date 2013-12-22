@@ -5,7 +5,14 @@
 
 @import 'app/css/_reset.scss';
 
-$menu-background: #aaa;
+$grey1: #8f8f8f;
+$grey2: #ababab;
+$grey3: #dadada;
+$grey4: #fdfdfd;
+$blue1: #051820;
+$blue2: #102230;
+$blue3: #1d3d56;
+$blue4: #234b69;
 
 body {
   font-family: Roboto;
@@ -24,8 +31,27 @@ body {
     #side-menu {
       @include position(absolute, 0px 0 0px -80%);
       @include transition(left .2s ease-in-out);
+      background-color: lighten($blue3, 5%);
+      @include background-image(radial-gradient(10% 10%, circle cover, #102230, lighten(#102230, 10%)));
+      box-shadow: inset -4px 0px 3px 0px rgba(#000, 0.4);
+      color: $grey3;
       width: 80%;
-      background-color: $menu-background;
+      padding: 10px;
+      font-size: 1.2em;
+
+      h2 { margin-bottom: 15px; }
+
+      ul.reports {
+        li {
+          border-bottom: 1px solid rgba($grey4, 0.1);
+          line-height: 2.5em;
+          padding-left: 1em;
+
+          &:last-child {
+            border: 0;
+          }
+        }
+      }
     }
 
     #content {
@@ -44,14 +70,8 @@ body {
     }
 
     &.show-menu {
-      #side-menu {
-        left: 0;
-      }
-
-      #content {
-        left: 80%;
-      }
-
+      #side-menu { left: 0; }
+      #content { left: 80%; }
       .blocking-layer {
         @include position(absolute, 0px 0px 0px 0px);
         opacity: 1 !important;
