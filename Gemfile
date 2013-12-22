@@ -6,6 +6,7 @@ gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 gem 'sinatra-security'
 
 gem 'sass'
+gem 'bourbon'
 gem 'haml'
 gem 'coffee-script'
 

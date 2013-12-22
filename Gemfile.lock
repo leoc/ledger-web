@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     coderay (1.0.8)
     coffee-script (2.2.0)
       coffee-script-source
@@ -76,6 +79,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   coffee-script
   guard-livereload
   guard-rack
