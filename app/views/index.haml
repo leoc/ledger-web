@@ -9,5 +9,7 @@
     != css :app, :media => 'screen'
     != js :app
     %script{ src: "https://github.com/livereload/livereload-js/raw/master/dist/livereload.js?host=localhost" }
+    :javascript
+      REPORTS = #{@reports.to_json}
   %body
     #ledger-web.show-menu

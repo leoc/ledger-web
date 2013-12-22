@@ -4,4 +4,6 @@ class LedgerWeb.Models.App extends Backbone.Model
     reports: null
     showMenu: false
 
-  initialize: (bootstrap) ->
+  initialize: (reports) ->
+    @reports = new LedgerWeb.Collections.Reports _.map reports, (report) =>
+      new LedgerWeb.Models.Report(report)

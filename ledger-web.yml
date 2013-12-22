@@ -1,1 +1,40 @@
 # Config file for ledger-web.
+reports:
+  - title: 'Balance'
+    type: 'simple'
+    parameters:
+      period: 'until today'
+      depth: 2
+    resource: 'balance'
+    query: ''
+  - title: 'Net Worth'
+    reports:
+      - title: 'Overview'
+        type: 'simple'
+        parameters:
+          period: 'until today'
+          depth: 2
+        resource: 'balance'
+        query: '-p {{period}} -d {{depth}} ^Assets ^Liabilities'
+      - title: 'Trend'
+        type: 'trend'
+        parameters:
+          period: 'current month'
+          grouping: '-D'
+        resource: 'register'
+        query: '{{grouping}} -p {{period}} --empty -n'
+  - title: 'Cashflow'
+    reports:
+      - title: 'Overview'
+        type: 'simple'
+        parameters:
+          period: 'until today'
+          depth: 2
+        resource: 'balance'
+        query: '-p {{period}} -d {{depth}} ^Expenses ^Income'
+      - title: 'Trend'
+        type: 'trend'
+        parameters:
+          period: 'current month'
+          grouping: '-D'
+        query: '{{grouping}} -p {{period}} --empty -n ^Expenses ^Income'

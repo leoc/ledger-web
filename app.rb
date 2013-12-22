@@ -44,6 +44,7 @@ class App < Sinatra::Base
   set :public_folder, File.expand_path('./public', File.dirname(__FILE__))
 
   get '/' do
+    @reports = YAML.load_file('./ledger-web.yml')['reports']
     haml :index
   end
 end

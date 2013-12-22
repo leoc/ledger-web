@@ -3,7 +3,7 @@ class LedgerWeb.Router extends Backbone.Router
     '': 'nothing'
 
   initialize: ->
-    LedgerWeb.app = new LedgerWeb.Models.App()
+    LedgerWeb.app = new LedgerWeb.Models.App(REPORTS)
     LedgerWeb.view = new LedgerWeb.Views.App
       el: $('#ledger-web')
       model: LedgerWeb.app
