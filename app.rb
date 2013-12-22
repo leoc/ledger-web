@@ -20,7 +20,11 @@ class App < Sinatra::Base
     serve '/fonts',  from: 'app/fonts'
 
     js :app, '/js/app.js', [
-                            '/js/vendor/**/*.js',
+                            '/js/vendor/jquery-*.js',
+                            '/js/vendor/hammer-*.js',
+                            '/js/vendor/underscore-*.js',
+                            '/js/vendor/backbone-*.js',
+                            '/js/vendor/haml.js',
                             '/js/templates.js',
                             '/js/lib/application.js',
                             '/js/lib/models/**/*.js',
