@@ -14,9 +14,17 @@ $blue2: #102230;
 $blue3: #1d3d56;
 $blue4: #234b69;
 
+* {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-user-select: none;
+}
+
 body {
   font-family: Roboto;
   font-weight: 300;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   h1, h2, h3, h4, h5 { font-weight: 400; }
