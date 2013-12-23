@@ -74,6 +74,17 @@ body {
       }
     }
 
+    #blocking-layer {
+      @include transition(opacity .2s linear);
+      @include transition(left .2s ease-in-out);
+      @include position(absolute, 0px 0 0px 0px);
+      width: 100%;
+      height: 0;
+      background-color: rgba(#000, .3);
+      opacity: 0;
+      z-index: 50;
+    }
+
     #content {
       @include position(absolute, 0px 0 0px 0px);
       @include transition(left .2s ease-in-out);
@@ -92,10 +103,7 @@ body {
     &.show-menu {
       #side-menu { left: 0; }
       #content { left: 80%; }
-      .blocking-layer {
-        @include position(absolute, 0px 0px 0px 0px);
-        opacity: 1 !important;
-      }
+      #blocking-layer { left: 80%; opacity: 1; height: 100%; }
     }
   }
 }
