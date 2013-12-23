@@ -91,12 +91,23 @@ body {
       width: 100%;
       overflow: hidden;
 
-      .blocking-layer {
-        @include position(absolute, 0px 0px 0 0px);
-        @include transition(opacity .2s ease-in-out);
-        background-color: rgba(#000, .1);
-        opacity: 0;
-        z-index: 50;
+      nav {
+        $nav-height: 60px;
+        height: $nav-height;
+        background-color: $blue1;
+        color: $grey4;
+        line-height: $nav-height;
+
+        h2 {
+          @include position(absolute, 0 0 0 50%);
+          @include transform(translateX(-50%));
+        }
+
+        .button {
+          &.menu { float: left; }
+          &.capture { float: right; }
+          i { line-height: $nav-height; font-size: 1.1em; margin: 0 0.8em; }
+        }
       }
     }
 
