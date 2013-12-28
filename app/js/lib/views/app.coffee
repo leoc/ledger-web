@@ -16,7 +16,7 @@ class LedgerWeb.Views.App extends Backbone.View
 
   renderReport: =>
     @$content ||= @$el.find('#content')
-    @reportView = new LedgerWeb.Views.Report
+    @reportView = new LedgerWeb.Views.Report.Frame
       model: @model.currentReport()
       el: @$content
     @reportView.render()
