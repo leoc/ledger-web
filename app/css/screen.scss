@@ -37,7 +37,7 @@ body {
     }
 
     #side-menu {
-      @include position(absolute, 0px 0 0px -80%);
+      @include position(absolute, 0px 0 0px 0px);
       @include transition(left .2s ease-in-out);
       background-color: lighten($blue3, 5%);
       @include background-image(radial-gradient(10% 10%, circle cover, #102230, lighten(#102230, 10%)));
@@ -159,7 +159,9 @@ body {
           }
         }
       }
-      #side-menu { left: 0; }
+    }
+
+    &.show-menu {
       #content { left: 80%; }
       #blocking-layer { left: 80%; opacity: 1; height: 100%; }
     }
