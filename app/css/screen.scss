@@ -86,13 +86,16 @@ body {
     }
 
     #content {
+      $nav-height: 60px;
+      $tab-height: 46px;
+      $tab-background: $grey3;
       @include position(absolute, 0px 0 0px 0px);
       @include transition(left .2s ease-in-out);
+      background-color: #fff;
       width: 100%;
       overflow: hidden;
 
       nav {
-        $nav-height: 60px;
         height: $nav-height;
         background-color: $blue1;
         color: $grey4;
@@ -109,9 +112,53 @@ body {
           i { line-height: $nav-height; font-size: 1.1em; margin: 0 0.8em; }
         }
       }
-    }
 
-    &.show-menu {
+      .report-content {
+        @include position(absolute, $nav-height 0px 0px 0px);
+
+        &.tab-0 {
+          .tabs .tab {
+            &.tab-0 { border-bottom: 4px solid $grey2; }
+            &.tab-1 { border-bottom: 4px solid $tab-background; }
+          }
+          .tab-layers .tab-layer {
+            &.tab-0 { display: block; }
+            &.tab-1 { display: none; }
+          }
+        }
+        &.tab-1 {
+          .tabs .tab {
+            &.tab-0 { border-bottom: 4px solid $tab-background; }
+            &.tab-1 { border-bottom: 4px solid $grey2; }
+          }
+          .tab-layers .tab-layer {
+            &.tab-0 { display: none; }
+            &.tab-1 { display: block; }
+          }
+        }
+
+        .tabs {
+          @include position(absolute, 0px 0px 0 0px);
+          height: $tab-height;
+          background: $tab-background;
+          font-size: 0.85em;
+
+          .tab {
+            float: left;
+            width: 50%;
+            line-height: $tab-height;
+            text-align: center;
+          }
+        }
+
+        .tab-layers {
+          @include position(absolute, ($tab-height + 4px) 0px 0px 0px);
+
+          div {
+            @include position(absolute, 0px 0px 0px 0px);
+          }
+        }
+      }
       #side-menu { left: 0; }
       #content { left: 80%; }
       #blocking-layer { left: 80%; opacity: 1; height: 100%; }
