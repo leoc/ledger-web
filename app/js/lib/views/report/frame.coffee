@@ -1,3 +1,5 @@
+LedgerWeb.Views.Report ||= {}
+
 class LedgerWeb.Views.Report.Frame extends Backbone.View
   template: JST['report_frame']
 
