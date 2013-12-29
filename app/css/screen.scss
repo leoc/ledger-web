@@ -134,6 +134,7 @@ body {
           }
         }
 
+        // TODO: allow more than two tabs
         .tabs {
           @include position(absolute, 0px 0px 0 0px);
           height: $tab-height;
