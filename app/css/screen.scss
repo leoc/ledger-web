@@ -45,7 +45,7 @@ body {
       color: $grey3;
       width: 80%;
       padding: 10px;
-      font-size: 1.2em;
+      font-size: 1.3em;
 
       h2 { margin-bottom: 15px; }
 
@@ -58,6 +58,7 @@ body {
 
           i {
             position: absolute;
+            font-size: 1.1em;
             width: 1.25em;
             line-height: 2.5em;
             text-align: center;
@@ -101,6 +102,7 @@ body {
         background-color: $blue1;
         color: $grey4;
         line-height: $nav-height;
+        font-size: 1.3em;
 
         h2 {
           @include position(absolute, 0 0 0 50%);
@@ -142,7 +144,7 @@ body {
           @include position(absolute, 0px 0px 0 0px);
           height: $tab-height;
           background: $tab-background;
-          font-size: 0.85em;
+          font-size: 1.1em;
 
           .tab {
             float: left;
