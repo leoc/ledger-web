@@ -11,7 +11,6 @@ class LedgerWeb.Views.Report.Frame extends Backbone.View
     LedgerWeb.app.set(showMenu: true)
 
   captureTransaction: =>
-    alert('Not yet implemented!')
 
   render: ->
     @$el.html(@template(report: @model.toJSON()))
