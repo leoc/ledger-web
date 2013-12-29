@@ -89,7 +89,7 @@ body {
 
     #content {
       $nav-height: 60px;
-      $tab-height: 46px;
+      $tab-height: 50px;
       $tab-background: $grey3;
       @include position(absolute, 0px 0 0px 0px);
       @include transition(left .2s ease-in-out);
@@ -120,20 +120,14 @@ body {
         @include position(absolute, $nav-height 0px 0px 0px);
 
         &.tab-0 {
-          .tabs .tab {
-            &.tab-0 { border-bottom: 4px solid $grey2; }
-            &.tab-1 { border-bottom: 4px solid $tab-background; }
-          }
+          .tabs .active-indicator { left: 0px; }
           .tab-layers .tab-layer {
             &.tab-0 { display: block; }
             &.tab-1 { display: none; }
           }
         }
         &.tab-1 {
-          .tabs .tab {
-            &.tab-0 { border-bottom: 4px solid $tab-background; }
-            &.tab-1 { border-bottom: 4px solid $grey2; }
-          }
+          .tabs .active-indicator { left: 50%; }
           .tab-layers .tab-layer {
             &.tab-0 { display: none; }
             &.tab-1 { display: block; }
@@ -146,6 +140,14 @@ body {
           background: $tab-background;
           font-size: 1.1em;
 
+          .active-indicator {
+            @include position(absolute, 0 0 0px 0);
+            @include transition(left .15s ease-in-out);
+            height: 4px;
+            width: 50%;
+            background: lighten($blue4, 10%);
+          }
+
           .tab {
             float: left;
             width: 50%;
@@ -155,7 +157,7 @@ body {
         }
 
         .tab-layers {
-          @include position(absolute, ($tab-height + 4px) 0px 0px 0px);
+          @include position(absolute, $tab-height 0px 0px 0px);
 
           div {
             @include position(absolute, 0px 0px 0px 0px);
