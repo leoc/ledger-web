@@ -2,19 +2,19 @@
 reports:
   - title: 'Balance'
     icon: 'bar-chart-o'
-    type: 'simple'
+    type: 'balance'
     parameters:
-      period: 'until today'
+      end: 'today'
       depth: 2
     resource: 'balance'
-    query: ''
+    query: '--end {{end}}'
   - title: 'Net Worth'
     icon: 'signal'
     reports:
       - title: 'Overview'
-        type: 'simple'
+        type: 'balance'
         parameters:
-          period: 'until today'
+          end: 'today'
           depth: 2
         resource: 'balance'
         query: '-p {{period}} -d {{depth}} ^Assets ^Liabilities'
@@ -29,7 +29,7 @@ reports:
     icon: 'exchange'
     reports:
       - title: 'Overview'
-        type: 'simple'
+        type: 'balance'
         parameters:
           period: 'until today'
           depth: 2
@@ -43,9 +43,47 @@ reports:
         query: '{{grouping}} -p {{period}} --empty -n ^Expenses ^Income'
   - title: 'Transactions'
     icon: 'bars'
+    type: 'transactions'
+    parameters:
+      period: 'until today'
+    resource: 'transactions'
+    query: '-p {{period}}'
   - title: 'Budget'
     icon: 'tasks'
+    type: 'budget'
+    parameters:
+      period: 'current month'
+    resource: 'budget'
+    query: '-p {{period}}'
   - title: 'Expenses'
     icon: 'long-arrow-right'
+    reports:
+      - title: 'Overview'
+        type: 'balance'
+        parameters:
+          period: 'until today'
+          depth: 2
+        resource: 'balance'
+        query: '-p {{period}} -d {{depth}} ^Expenses'
+      - title: 'Trend'
+        type: 'trend'
+        parameters:
+          period: 'current month'
+          grouping: '-D'
+        query: '{{grouping}} -p {{period}} --empty -n ^Expenses'
   - title: 'Income'
     icon: 'long-arrow-left'
+    reports:
+      - title: 'Overview'
+        type: 'balance'
+        parameters:
+          period: 'until today'
+          depth: 2
+        resource: 'balance'
+        query: '-p {{period}} -d {{depth}} ^Income'
+      - title: 'Trend'
+        type: 'trend'
+        parameters:
+          period: 'current month'
+          grouping: '-D'
+        query: '{{grouping}} -p {{period}} --empty -n ^Income'
