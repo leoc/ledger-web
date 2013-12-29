@@ -8,7 +8,6 @@ class LedgerWeb.Views.Report.Frame extends Backbone.View
     'click .capture': 'captureTransaction'
 
   showMenu: =>
-    console.log 'Show menu'
     LedgerWeb.app.set(showMenu: true)
 
   captureTransaction: =>
