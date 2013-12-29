@@ -4,8 +4,7 @@ class LedgerWeb.Models.App extends Backbone.Model
     showMenu: false
 
   initialize: (reports) ->
-    @reports = new LedgerWeb.Collections.Reports _.map reports, (report) =>
-      new LedgerWeb.Models.Report(report)
+    @reports = new LedgerWeb.Collections.Reports(reports)
 
   currentReport: ->
     @reports.at(@get('showReport'))
