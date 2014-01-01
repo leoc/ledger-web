@@ -1,4 +1,11 @@
 class LedgerWeb.Views.Report extends Backbone.View
   render: ->
-    @$el.html("Now this is a nice report: #{@model.get('query')}")
+    @reportView = null
+
+    if @model.get('type') == 'balance'
+      @reportView = new LedgerWeb.Views.Report.Balance
+        model: @model
+      @$el.html(@reportView.render().el) if @reportView?
+    else
+      @$el.html("Other reports #{@model.get('query')}")
     this

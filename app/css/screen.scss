@@ -118,6 +118,7 @@ body {
 
       .report-content {
         @include position(absolute, $nav-height 0px 0px 0px);
+        overflow-y: scroll;
 
         &.tab-0 {
           .tabs .active-indicator { left: 0px; }
@@ -162,6 +163,35 @@ body {
 
           div {
             @include position(absolute, 0px 0px 0px 0px);
+          }
+        }
+
+        .balance-report .balance-text {
+          .account {
+            @include clearfix;
+            margin: 0.5em 0;
+
+            &.depth-1 {
+              font-weight: 400;
+            }
+
+            .totals {
+              float: left;
+              width: 40%;
+              text-align: right;
+
+              .total {
+                .amount, .commodity { display: inline-block; }
+                .commodity { margin-left: 0.8em; }
+
+                &.neg { color: #f04040; }
+                &.pos {}
+              }
+            }
+            .title {
+              float: right;
+              width: 60%;
+            }
           }
         }
       }

@@ -1,0 +1,8 @@
+%div{ class: "account depth-#{account.depth}" }
+  .totals
+    :each total in account.totals
+      %div{ class: "total #{toClassName(total.commodity)} #{negPosClass(total.amount)}" }
+        .amount= total.amount
+        .commodity= total.commodity
+  .title{ style: "padding-left: #{account.depth * 20}px;" }
+    = account.name

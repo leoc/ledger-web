@@ -7,7 +7,7 @@ reports:
       end: 'today'
       depth: 2
     resource: 'balance'
-    query: '--end {{end}}'
+    query: '--flat --end {{end}} --depth {{depth}}'
   - title: 'Net Worth'
     icon: 'signal'
     reports:
