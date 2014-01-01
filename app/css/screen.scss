@@ -161,8 +161,9 @@ body {
         .tab-layers {
           @include position(absolute, $tab-height 0px 0px 0px);
 
-          div {
+          .tab-layer {
             @include position(absolute, 0px 0px 0px 0px);
+            overflow-y: scroll;
           }
         }
 
