@@ -6,5 +6,11 @@ class LedgerWeb.Models.App extends Backbone.Model
   initialize: (reports) ->
     @reports = new LedgerWeb.Collections.Reports(reports)
 
+    @on 'change:showReport', @fetchReport
+    @fetchReport()
+
+  fetchReport: =>
+    @currentReport().fetch()
+
   currentReport: ->
     @reports.at(@get('showReport'))
