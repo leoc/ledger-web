@@ -17,37 +17,37 @@ reports:
           end: 'today'
           depth: 2
         resource: 'balance'
-        query: '-p {{period}} -d {{depth}} ^Assets ^Liabilities'
+        query: "--flat --end '{{end}}' --depth {{depth}} ^Assets ^Liabilities"
       - title: 'Trend'
         type: 'periodical'
         parameters:
-          period: 'current month'
+          period: 'this month'
           grouping: '-D'
         resource: 'register'
-        query: '{{grouping}} -p {{period}} --empty -n'
+        query: "{{grouping}} -p '{{period}}' --empty -n ^Assets ^Liabilities"
   - title: 'Cashflow'
     icon: 'exchange'
     reports:
       - title: 'Overview'
         type: 'balance'
         parameters:
-          period: 'until today'
+          end: 'today'
           depth: 2
         resource: 'balance'
-        query: '-p {{period}} -d {{depth}} ^Expenses ^Income'
+        query: "--flat --end '{{end}}' --depth {{depth}} ^Expenses ^Income"
       - title: 'Trend'
         type: 'periodical'
         parameters:
-          period: 'current month'
+          period: 'this month'
           grouping: '-D'
-        query: '{{grouping}} -p {{period}} --empty -n ^Expenses ^Income'
+        query: "{{grouping}} -p '{{period}}' --empty -n ^Expenses ^Income"
   - title: 'Transactions'
     icon: 'bars'
     type: 'transactions'
     parameters:
-      period: 'until today'
+      end: 'today'
     resource: 'transactions'
-    query: '-p {{period}}'
+    query: '--end {{end}}'
   - title: 'Budget'
     icon: 'tasks'
     type: 'budget'
@@ -61,29 +61,29 @@ reports:
       - title: 'Overview'
         type: 'balance'
         parameters:
-          period: 'until today'
+          end: 'today'
           depth: 2
         resource: 'balance'
-        query: '-p {{period}} -d {{depth}} ^Expenses'
+        query: "--flat --end '{{end}}' --depth {{depth}} ^Expenses"
       - title: 'Trend'
         type: 'periodical'
         parameters:
           period: 'current month'
           grouping: '-D'
-        query: '{{grouping}} -p {{period}} --empty -n ^Expenses'
+        query: "{{grouping}} -p '{{period}}' --empty -n ^Expenses"
   - title: 'Income'
     icon: 'long-arrow-left'
     reports:
       - title: 'Overview'
         type: 'balance'
         parameters:
-          period: 'until today'
+          end: 'today'
           depth: 2
         resource: 'balance'
-        query: '-p {{period}} -d {{depth}} ^Income'
+        query: "--flat --end '{{end}}' --depth {{depth}} ^Income"
       - title: 'Trend'
         type: 'periodical'
         parameters:
           period: 'current month'
           grouping: '-D'
-        query: '{{grouping}} -p {{period}} --empty -n ^Income'
+        query: "{{grouping}} -p '{{period}}' --empty -n ^Income"
