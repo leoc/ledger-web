@@ -3,7 +3,7 @@ class LedgerWeb.Models.Report extends Backbone.Model
     fetched: false
 
   url: =>
-    "/api/#{@get('resource')}?query=#{@interpolateQuery()}"
+    "/api/#{@get('resource')}?query=#{encodeURIComponent(@interpolateQuery())}"
 
   interpolateQuery: ->
     query = _.clone(@get('query'))
