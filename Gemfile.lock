@@ -36,7 +36,7 @@ GEM
       spoon (~> 0.0.1)
     haml (3.1.7)
     jsmin (1.0.1)
-    ledger-rest (3.0.0)
+    ledger-rest (4.0.1)
       escape
       git
       sinatra
