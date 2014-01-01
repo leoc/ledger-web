@@ -1,9 +1,5 @@
 Bundler.require
 
-# require 'sinatra/base'
-# require 'sinatra/backbone'
-# require 'sinatra/assetpack'
-
 class App < Sinatra::Base
   enable :raise_errors, :logging
   enable :show_exceptions  if development?
@@ -35,8 +31,8 @@ class App < Sinatra::Base
                            ]
     css :app, '/css/app.css', ['/css/screen.css']
 
-    js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
-    css_compression :simple   # :simple | :sass | :yui | :sqwish
+    js_compression  :jsmin
+    css_compression :simple
   end
 
   set :root,          File.expand_path('.', File.dirname(__FILE__))
