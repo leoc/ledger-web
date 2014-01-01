@@ -14,6 +14,13 @@ class LedgerWeb.Models.Report extends Backbone.Model
   parse: (data, options) =>
     { data: data }
 
+  fetch: (options) ->
+    if @get('reports').isEmpty()
+      Backbone.Model.prototype.fetch.call(this, options);
+    else
+      @get('reports').each (report) ->
+        report.fetch()
+
   initialize: ->
     @set
       fetched: !_.isEmpty(@get('reports'))
