@@ -29,6 +29,7 @@ class App < Sinatra::Base
                             '/js/lib/router.js',
                             '/js/lib/start.js'
                            ]
+    js :livereload, '/js/livereload.js', ['/js/vendor/livereload.js']
     css :app, '/css/app.css', ['/css/screen.css']
 
     js_compression  :jsmin

@@ -8,7 +8,7 @@
     != js :jst
     != css :app, :media => 'screen'
     != js :app
-    %script{ src: "https://github.com/livereload/livereload-js/raw/master/dist/livereload.js?host=localhost" }
+    %script{ src: "/js/livereload.js?host=tickrt" }
     :javascript
       REPORTS = #{@reports.to_json}
   %body
