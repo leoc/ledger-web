@@ -13,6 +13,8 @@ $blue1: #051820;
 $blue2: #102230;
 $blue3: #1d3d56;
 $blue4: #234b69;
+$green: #234b69;
+$red:   #c03b13;
 
 * {
   -webkit-touch-callout: none;
@@ -194,6 +196,60 @@ body {
               .title {
                 float: right;
                 width: 60%;
+              }
+            }
+          }
+        }
+
+        .budget-report {
+          .budget-chart {
+            .month-progress {
+              @include position(absolute, 0px 0 0px 0px);
+              background-color: $grey2;
+              opacity: 0.1;
+            }
+
+            .account {
+              margin: 1em;
+
+              .info {
+                @include clearfix;
+                font-size: 0.8em;
+
+                .fullname { float: left; font-weight: 400; }
+                .budget { float: right; }
+              }
+
+              .progressbar {
+                @include position(relative, 0 0 0 0);
+                @include clearfix;
+                margin-top: 0.25em;
+                height: 18px;
+                background-color: lighten($grey3, 8%);
+                z-index: 10;
+
+                .total {
+                  @include position(absolute, 0px 0px 0px 0px);
+                  white-space: nowrap;
+                  color: #000;
+                  font-size: 0.8em;
+                  line-height: 18px;
+                  padding-left: 4px;
+                }
+
+                .kept, .exceeded {
+                  float: left;
+                  height: 18px;
+                  overflow: hidden;
+
+                  .total {
+                    @include position(relative, 0px 0px 0px 0px);
+                    color: #fff;
+                  }
+                }
+
+                .kept { background-color: $green; }
+                .exceeded { background-color: $red; }
               }
             }
           }

@@ -1,0 +1,11 @@
+.month-progress{ style: "width: #{progressOfCurrentMonth()}%" }
+:each account in accounts
+  .account
+    .info
+      %span.fullname= account.account
+      %span.budget= account.budget
+    .progressbar
+      .total= account.total
+      .kept{ style: "width: #{keptBudgetPercentage(account.percentage)}%" }
+        .total= account.total
+      .exceeded{ style: "width: #{exceededBudgetPercentage(account.percentage)}%"}
