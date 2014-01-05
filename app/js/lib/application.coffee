@@ -15,14 +15,14 @@ window.negPosClass = (val) ->
 window.keptBudgetPercentage = (percentage) ->
   val = parseInt(percentage)
   if val > 100
-    200 - val
+    100 / val * 100
   else
     val
 
 window.exceededBudgetPercentage = (percentage) ->
   val = parseInt(percentage)
   if val > 100
-    val - 100
+    (val - 100) / val * 100
   else
     0
 
