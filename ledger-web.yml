@@ -52,7 +52,7 @@ reports:
     icon: 'tasks'
     type: 'budget'
     parameters:
-      period: 'current month'
+      period: 'this month'
     resource: 'budget'
     query: "-p '{{period}}' ^Expenses:"
   - title: 'Expenses'
@@ -68,7 +68,7 @@ reports:
       - title: 'Trend'
         type: 'periodical'
         parameters:
-          period: 'current month'
+          period: 'this month'
           grouping: '-D'
         query: "{{grouping}} -p '{{period}}' --empty -n ^Expenses"
   - title: 'Income'
@@ -84,6 +84,6 @@ reports:
       - title: 'Trend'
         type: 'periodical'
         parameters:
-          period: 'current month'
+          period: 'this month'
           grouping: '-D'
         query: "{{grouping}} -p '{{period}}' --empty -n ^Income"
