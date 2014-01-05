@@ -205,8 +205,8 @@ body {
           .budget-chart {
             .month-progress {
               @include position(absolute, 0px 0 0px 0px);
-              background-color: $grey2;
-              opacity: 0.1;
+              background-color: rgba($grey2, 0.1);
+              border-right: 1px solid rgba($grey1, 0.2);
             }
 
             .account {
