@@ -47,7 +47,7 @@ reports:
     parameters:
       end: 'today'
     resource: 'transactions'
-    query: '--end {{end}}'
+    query: "--end {{end}} --sort -date"
   - title: 'Budget'
     icon: 'tasks'
     type: 'budget'
