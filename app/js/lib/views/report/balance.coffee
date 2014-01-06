@@ -1,7 +1,7 @@
 LedgerWeb.Views.Report ||= {}
 
 class LedgerWeb.Views.Report.Balance extends Backbone.View
-  className: 'balance-report'
+  className: 'balance report'
 
   visualization: 'balance_text'
 

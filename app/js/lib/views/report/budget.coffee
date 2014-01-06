@@ -1,7 +1,7 @@
 LedgerWeb.Views.Report ||= {}
 
 class LedgerWeb.Views.Report.Budget extends Backbone.View
-  className: 'budget-report'
+  className: 'budget report'
 
   render: ->
     @view = null

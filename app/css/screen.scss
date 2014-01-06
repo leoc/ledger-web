@@ -167,10 +167,13 @@ body {
           }
         }
 
-        .balance-report {
+        .report {
           @include position(absolute, 0px 0px 0px 0px);
+          overflow-x: hidden;
           overflow-y: auto;
+        }
 
+        .balance.report {
           .balance-text {
             .account {
               @include clearfix;
@@ -201,7 +204,7 @@ body {
           }
         }
 
-        .budget-report {
+        .budget.report {
           .budget-chart {
             .month-progress {
               @include position(absolute, 0px 0 0px 0px);
