@@ -29,6 +29,15 @@ window.exceededBudgetPercentage = (percentage) ->
 window.progressOfCurrentMonth = () ->
   new Date().getDate() / (new Date().daysInMonth()) * 100
 
+window.shortenAccountName = (name) ->
+  parts = name.split(':')
+  for part, i in parts
+    if i < parts.length - 2
+      parts[i] = part[0]
+    else if i < parts.length - 2
+      parts[i] = part[0..2]
+  parts.join(':')
+
 Date::daysInMonth = () ->
   d = new Date(@getFullYear(), @getMonth()+1, 0)
   d.getDate()
