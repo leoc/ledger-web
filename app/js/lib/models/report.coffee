@@ -12,7 +12,12 @@ class LedgerWeb.Models.Report extends Backbone.Model
     query
 
   parse: (data, options) =>
-    { data: data }
+    if @get("type") == 'transactions'
+      transactions = new LedgerWeb.Collections.Transactions()
+      transactions.reset(data)
+      { data: transactions }
+    else
+      { data: data }
 
   fetch: (options) ->
     if @get('reports').isEmpty()
