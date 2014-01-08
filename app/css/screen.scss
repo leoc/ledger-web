@@ -257,6 +257,78 @@ body {
             }
           }
         }
+
+        .transactions.report {
+          .collapsible-indicator {
+            margin: 0 0.4em;
+
+            &:before {
+              content: "\f0d7";
+              font-family: FontAwesome;
+            }
+          }
+
+          .collapsed {
+            .collapsible-indicator {
+              margin: 0 0.5em;
+
+              &:before {
+                content: "\f0da";
+                font-family: FontAwesome;
+              }
+            }
+          }
+
+          .month {
+            &> .info {
+              padding: 10px;
+              border-bottom: 1px solid $grey4
+            }
+
+            .transactions {
+              .transaction {
+                font-size: 0.9em;
+                border: 1px solid lighten($grey3, 5%);
+                background-color: lighten($grey3, 10%);
+                margin: 10px;
+                padding: 8px;
+                overflow: hidden;
+
+                .date, .payee {
+                  white-space: nowrap;
+                  font-weight: 400;
+                }
+
+                .payee {
+                  margin-left: 0.4em;
+                }
+
+                .posts {
+                  margin: 10px 0 0 10px;
+
+                  .post {
+                    @include clearfix;
+
+                    .account {
+                      float: left;
+                    }
+
+                    .amount {
+                      float: right;
+
+                      &.neg { color: #f04040; }
+                      &.pos {}
+                    }
+                  }
+                }
+
+                &.collapsed .posts { display: none; }
+              }
+            }
+
+            &.collapsed .transactions { display: none; }
+          }
+        }
       }
     }
 

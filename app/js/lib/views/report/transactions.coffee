@@ -9,8 +9,10 @@ class LedgerWeb.Views.Report.Transactions extends Backbone.View
     @model.on 'sync', @renderData
 
   renderData: =>
-    console.log @model.get('data')
-    @$el.html(@template(transactions: @model.get('data')))
+    @model.get('data').getMonths().each (month) =>
+      view = new LedgerWeb.Views.Transactions.Month
+        model: month
+      @$el.append(view.render().el)
     this
 
   render: =>
