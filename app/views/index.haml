@@ -8,7 +8,8 @@
     != js :jst
     != css :app, :media => 'screen'
     != js :app
-    %script{ src: "/js/livereload.js?host=tickrt" }
+    - if Env.development?
+      %script{ src: "/js/livereload.js?host=tickrt" }
     :javascript
       REPORTS = #{@reports.to_json}
   %body

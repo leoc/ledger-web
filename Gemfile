@@ -13,7 +13,11 @@ gem 'coffee-script'
 gem 'ledger-rest'
 
 group :test, :development do
-  gem 'guard-rack'
-  gem 'guard-livereload'
   gem 'rb-inotify'
+  gem 'jasmine'
+  gem 'guard-rack'
+  gem 'guard-copy'
+  gem 'guard-livereload'
+  gem 'guard-jasmine'
+  gem 'guard-coffeescript'
 end
