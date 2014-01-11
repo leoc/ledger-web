@@ -8,8 +8,8 @@ class LedgerWeb.Views.App extends Backbone.View
     @model.set(showMenu: false)
 
   initialize: ->
-    @model.on('change showMenu', @toggleShowMenuClass)
-    @model.on('change showReport', @renderReport)
+    @model.on('change:showMenu', @toggleShowMenuClass)
+    @model.on('change:showReport', @renderReport)
 
   toggleShowMenuClass: =>
     @$el.toggleClass('show-menu', @model.get('showMenu'))
