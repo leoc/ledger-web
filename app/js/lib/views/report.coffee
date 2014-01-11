@@ -1,9 +1,6 @@
 class LedgerWeb.Views.Report extends Backbone.View
   render: ->
     @reportView = null
-
-    console.log @model.get('type')
-
     if @model.get('type') == 'balance'
       @reportView = new LedgerWeb.Views.Report.Balance
         model: @model
