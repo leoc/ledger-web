@@ -12,7 +12,5 @@ class LedgerWeb.Collections.Transactions extends Backbone.Collection
       month: key
       transactions: val
 
-    console.log @months
-
   getMonths: ->
     @months
