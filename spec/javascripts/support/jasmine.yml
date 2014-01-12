@@ -11,18 +11,18 @@
 #   - dist/**/*.js
 #
 src_files:
-  - '/js/vendor/jquery-*.js'
-  - '/js/vendor/hammer-*.js'
-  - '/js/vendor/underscore-*.js'
-  - '/js/vendor/backbone-*.js'
-  - '/js/vendor/haml.js'
-  - '/js/templates.js'
-  - '/js/lib/application.js'
-  - '/js/lib/models/**/*.js'
-  - '/js/lib/views/**/*.js'
-  - '/js/lib/collections/**/*.js'
-  - '/js/lib/router.js'
-  - '/js/lib/start.js'
+  - 'vendor/jquery-*.js'
+  - 'vendor/hammer-*.js'
+  - 'vendor/underscore-*.js'
+  - 'vendor/backbone-*.js'
+  - 'vendor/haml.js'
+  - 'templates.js'
+  - 'lib/application.js'
+  - 'lib/models/**/*.js'
+  - 'lib/views/**/*.js'
+  - 'lib/collections/**/*.js'
+  - 'lib/router.js'
+  - 'lib/start.js'
 
 # stylesheets
 #
