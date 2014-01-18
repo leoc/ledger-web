@@ -19,7 +19,6 @@ src_files:
   - 'templates.js'
   - 'lib/application.js'
   - 'lib/models/**/*.js'
-  - 'lib/views/**/*.js'
   - 'lib/collections/**/*.js'
   - 'lib/router.js'
   - 'lib/start.js'
