@@ -1,2 +1,5 @@
 /.sass-cache
 /spec/app_js
+/spec/javascripts/models
+/spec/javascripts/collections
+/spec/javascripts/*.js
