@@ -2,7 +2,7 @@ describe 'LedgerWeb.Models.Transactions.Month', ->
   it 'populates transactions attribute as transactions collection', ->
     month = new LedgerWeb.Models.Transactions.Month
       month: '2013/12'
-      transactions: [payee: 'my payee']
+      transactions: [payee: 'my payee', date: '2013/12/01']
     (expect month.get('transactions') instanceof LedgerWeb.Collections.Transactions).toBeTruthy()
 
   it 'parses the date strings into javascript dates', ->
