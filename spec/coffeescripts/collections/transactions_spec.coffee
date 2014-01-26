@@ -12,5 +12,5 @@ describe 'LedgerWeb.Collections.Transactions', ->
       extractedMonths = transactions.extractMonths()
       (expect extractedMonths.map((month) -> month.get('month'))).toContain('2014/01')
       (expect extractedMonths.map((month) -> month.get('month'))).toContain('2013/12')
-      extractedMonths.each (month) =>
-        (expect month.get('transactions').map((t) -> t.get('payee')).toContain('Foo')
+      (expect extractedMonths.at(0).get('transactions').at(0).get('payee')).toEqual('Foo')
+      (expect extractedMonths.at(1).get('transactions').at(0).get('payee')).toEqual('Bar')
