@@ -38,6 +38,10 @@ window.shortenAccountName = (name) ->
       parts[i] = part[0..2]
   parts.join(':')
 
+window.monthAsString = (date) ->
+  months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  "#{months[date.getMonth()]} #{date.getFullYear()}"
+
 Date::daysInMonth = () ->
   d = new Date(@getFullYear(), @getMonth()+1, 0)
   d.getDate()
