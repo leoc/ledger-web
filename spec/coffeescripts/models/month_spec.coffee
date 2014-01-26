@@ -1,4 +1,4 @@
-describe 'LedgerWeb.Models.Month', ->
+describe 'LedgerWeb.Models.Transactions.Month', ->
   it 'populates transactions attribute as transactions collection', ->
     month = new LedgerWeb.Models.Transactions.Month
       month: '2013/12'
