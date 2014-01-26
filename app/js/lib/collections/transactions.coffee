@@ -15,3 +15,6 @@ class LedgerWeb.Collections.Transactions extends Backbone.Collection
 
   getMonths: ->
     @months
+
+  comparator: (model) ->
+    -model.get('date').valueOf()
