@@ -42,6 +42,16 @@ window.monthAsString = (date) ->
   months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   "#{months[date.getMonth()]} #{date.getFullYear()}"
 
+window.dateAsString = (date) ->
+  daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  lastDigit = date.getDate()%10
+  suffix = switch
+    when lastDigit == 1 then 'st'
+    when lastDigit == 2 then 'nd'
+    when lastDigit == 3 then 'rd'
+    else 'th'
+  "#{daysOfWeek[date.getDay()]}, #{date.getDate()}#{suffix}"
+
 Date::daysInMonth = () ->
   d = new Date(@getFullYear(), @getMonth()+1, 0)
   d.getDate()
