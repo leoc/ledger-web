@@ -16,3 +16,16 @@ describe 'LedgerWeb.Models.Transactions.Post', ->
     (expect date.getDate()).toEqual(16)
     (expect date.getMonth()).toEqual(11)
     (expect date.getFullYear()).toEqual(2013)
+
+  describe '#getRootAccount', ->
+    describe 'for nested account', ->
+      it 'returns the root account', ->
+        post = new LedgerWeb.Models.Transactions.Post
+          account: 'Expenses:Groceries'
+        (expect post.getRootAccount()).toEqual('Expenses')
+
+    describe 'for already root account', ->
+      it 'returns the root account', ->
+        post = new LedgerWeb.Models.Transactions.Post
+          account: 'Expenses'
+        (expect post.getRootAccount()).toEqual('Expenses')

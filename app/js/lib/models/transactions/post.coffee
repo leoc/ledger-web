@@ -8,3 +8,11 @@ class LedgerWeb.Models.Transactions.Post extends Backbone.Model
     if @get('effective_date')?
       [year, month, date] = _.map(@get('effective_date').split('/'), (val) -> parseInt(val, 10))
       @set effective_date: new Date(year, month-1, date) #months are 0-based
+
+  getRootAccount: ->
+    acc = @get('account')
+    index = acc.indexOf(':')
+    if index > 0
+      acc.substring(0, index)
+    else
+      acc
