@@ -303,6 +303,11 @@ body {
                   margin-left: 0.4em;
                 }
 
+                .effect {
+                  float: right;
+                  display: none;
+                }
+
                 .posts {
                   margin: 10px 0 0 10px;
 
@@ -322,11 +327,16 @@ body {
                   }
                 }
 
-                &.collapsed .posts { display: none; }
+                &.collapsed {
+                  .info .effect { display: block; }
+                  .posts { display: none; }
+                }
               }
             }
 
-            &.collapsed .transactions { display: none; }
+            &.collapsed {
+              .transactions { display: none; }
+            }
           }
         }
       }

@@ -19,7 +19,7 @@ class LedgerWeb.Views.Transactions.Transaction extends Backbone.View
     @$el.toggleClass('collapsed', @options.collapsed)
 
   render: =>
-    @$el.html(@template(transaction: @model.toJSON()))
+    @$el.html(@template(transaction: @model.toJSON(), effect: @model.getEffect()))
     @$posts = @$el.find('.posts')
     @model.get('posts').each (post) =>
       view = new LedgerWeb.Views.Transactions.Post

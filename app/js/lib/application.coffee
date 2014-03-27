@@ -55,3 +55,8 @@ window.dateAsString = (date) ->
 Date::daysInMonth = () ->
   d = new Date(@getFullYear(), @getMonth()+1, 0)
   d.getDate()
+
+
+window.effectString = (effects) ->
+  for effect in effects
+    "#{effect.amount} #{effect.commodity}"

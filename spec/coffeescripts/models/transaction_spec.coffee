@@ -21,3 +21,31 @@ describe 'LedgerWeb.Models.Transaction', ->
     (expect date.getDate()).toEqual(16)
     (expect date.getMonth()).toEqual(11)
     (expect date.getFullYear()).toEqual(2013)
+
+  describe 'losing assets', ->
+    it 'returns the lost amount', ->
+      tx = new LedgerWeb.Models.Transaction
+        posts: [
+          { account: "Expenses:Groceries", amount:   2.50, commodity: 'EUR' },
+          { account: "Expenses:Cafe",      amount:   7.50, commodity: 'EUR' },
+          { account: "Assets:Cash",        amount: -10.00, commodity: 'EUR' }
+          ]
+      (expect tx.getEffect()).toEqual [{ amount: -10.00, commodity: 'EUR' }]
+
+  describe 'gaining assets', ->
+    it 'returns the gained amount', ->
+      tx = new LedgerWeb.Models.Transaction
+        posts: [
+          { account: "Assets:Cash",    amount:  10.00, commodity: 'EUR' },
+          { account: "Income:Invoice", amount: -10.00, commodity: 'EUR' }
+          ]
+      (expect tx.getEffect()).toEqual [{ amount: 10.00, commodity: 'EUR'}]
+
+  describe 'keeping assets', ->
+    it 'returns zero for transaction between liabilities and assets', ->
+      tx = new LedgerWeb.Models.Transaction
+        posts: [
+          { account: "Liabilities:Hans Moleman", amount:  10.00, commodity: 'EUR' },
+          { account: "Assets:Cash",              amount: -10.00, commodity: 'EUR' }
+          ]
+      (expect tx.getEffect()).toEqual []
