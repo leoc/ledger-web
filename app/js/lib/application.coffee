@@ -56,7 +56,9 @@ Date::daysInMonth = () ->
   d = new Date(@getFullYear(), @getMonth()+1, 0)
   d.getDate()
 
+window.formatCurrency = (value) ->
+  "#{value.toFixed(2)}"
 
 window.effectString = (effects) ->
   for effect in effects
-    "#{effect.amount} #{effect.commodity}"
+    "#{formatCurrency(effect.amount)} #{effect.commodity}"

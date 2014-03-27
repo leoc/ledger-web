@@ -1,4 +1,4 @@
 %span.account= shortenAccountName(post.account)
 %div{ class: "amount #{negPosClass(post.amount)}" }
-  %span.value= post.amount
+  %span.value= formatCurrency(post.amount)
   %span.commodity= post.commodity
